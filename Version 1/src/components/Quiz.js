@@ -18,8 +18,8 @@ function Quiz() {
     }
 
     const previousQuestion = ()=>{
-        updateScore();
-        if(currentQuestion< QuizData.length-1){
+        setScore(score-1);
+        if(currentQuestion< QuizData.length){
             setCurrentQuestion(currentQuestion-1);
             setClickedOption(0);
         }else{
@@ -45,7 +45,8 @@ function Quiz() {
         <div className="container">
             {showResult ? (
                 <QuizResult score={score} totalScore={QuizData.length} tryAgain={resetAll}/>
-            ):(
+            )
+            :(
             <>
             <div className="question">
                 <span id="question-number">{currentQuestion+1}. </span>
